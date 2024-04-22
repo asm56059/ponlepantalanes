@@ -1,19 +1,21 @@
-function onoff(elm) {
-    elm.addEventListener('mouseover', function(e) {
-        elm.style.fill = '#f90';
-    });
-    elm.addEventListener('mouseout', function(e) {
-        elm.style.fill = '';
-    });
+
+document.addEventListener('click', (event)=>{
+    
+    console.log(event.target)
+
+    // if(sonVerdaderos realGs?){
+    //     abre un popup
+    // }sno{
+        // hgaz otra cosa
+    // }
+    
+})
+
+
+function areThey(id){
+    
+    // if(id is blabla)
+    // return true
+
+    // return false
 }
-
-window.addEventListener('load', function(e) {
-    var doc = document.querySelector('#sample'),
-        svg = doc.contentDocument || doc.getSVGDocument(),
-        path = svg.querySelectorAll('path'),
-        i;
-
-    for (i = 0; i < path.length; ++i) {
-        onoff(path[i]);
-    }
-});
