@@ -1,0 +1,37 @@
+
+.cls-1,
+.cls-3 {
+    fill: none;
+}
+
+.cls-1 {
+    stroke: red;
+}
+
+.cls-1,
+.cls-2,
+.cls-3 {
+    stroke-miterlimit: 10;
+}
+
+.cls-2 {
+    fill: #fff;
+}
+
+.cls-2,
+.cls-3 {
+    stroke: #d30000;
+}
+
+.cls-3 {
+    stroke-width: 4px;
+}
+
+.cls-4 {
+    fill: #0c00ff;
+}
+.cls-4:hover {
+fill: #555555;
+background-color: black;
+transform: scale();
+}
