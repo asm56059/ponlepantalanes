@@ -1,37 +1,128 @@
 
-.cls-1,
-.cls-3 {
+svg{
+    position: absolute;
+    width:100%;
+    height:auto;
+    }
+
+#pantalanes{
+    z-index:0;
+    
+}
+#pila{
+    z-index: 1;
+    
+
+}
+#letras{
+    z-index: 1;
+  
+}
+
+
+.pantalanes-1 {
     fill: none;
 }
 
-.cls-1 {
-    stroke: red;
-}
-
-.cls-1,
-.cls-2,
-.cls-3 {
+.pantalanes-1,
+.pantalanes-2 {
+    stroke: #4d4d4d;
     stroke-miterlimit: 10;
+    stroke-width: 5px;
+    opacity: 0.5;
 }
 
-.cls-2 {
+.pantalanes-2 {
     fill: #fff;
 }
 
-.cls-2,
-.cls-3 {
-    stroke: #d30000;
+
+
+
+.letras-1,
+.letras-2 {
+    font-size: 60px;
+    fill: none;
+    stroke: #000;
+    stroke-miterlimit: 10;
+    font-family: MyriadPro-Regular, Myriad Pro;
+}
+
+.letras-2 {
+    letter-spacing: 0.01em;
+}
+
+.letras-3 {
+    letter-spacing: -0.09em;
+}
+
+
+
+
+.cls-1 {
+    fill: #818183;
+}
+
+.cls-2 {
+    fill: #888879;
 }
 
 .cls-3 {
-    stroke-width: 4px;
+    fill: #83907c;
 }
 
 .cls-4 {
-    fill: #0c00ff;
+    fill: #907988;
 }
-.cls-4:hover {
-fill: #555555;
-background-color: black;
+
+.cls-5 {
+    fill: #7c9f6f;
+}
+
+.cls-6 {
+    fill: #ae6a6d;
+}
+
+.cls-7 {
+    fill: #c29f59;
+}
+
+.cls-8 {
+    fill: #5ea668;
+}
+
+.cls-9 {
+    fill: #6d9c72;
+}
+
+.cls-10 {
+    fill: #c4a188;
+}
+
+.cls-11 {
+    fill: #6fc254;
+}
+
+.cls-12 {
+    fill: #b05172;
+}
+
+.cls-13 {
+    fill: #639;
+}
+
+.cls-14 {
+    fill: #618576;
+}
+
+.cls-15 {
+    fill: #c72e8a;
+}
+
+.cls-16 {
+    fill: #a15a6c;
+}
+.cls:hover {
+fill: #990000;
 transform: scale();
 }
