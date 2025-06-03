@@ -1,13 +1,11 @@
 body{
     height: 100vh;
-    width: 100vw;
     background: linear-gradient(#2e2e2e, #9198e5);
     background-repeat: no-repeat;
     background-size: contain;
 }
 #bloque2,#bloque1{
     position: relative; 
-  width: 99vw;
 }
 #bloque2{
     /* position: absolute;  */
@@ -29,20 +27,13 @@ svg{
 #pila{
     z-index: 1;
     margin-top: 4%;
-        width: 47%;
-        margin-left: 0.5%;
-
-
+    width: 47%;
+    margin-left: 0.5%;
 }
 #letras{
     z-index: 1;
-      width: 55%;
-
+    width: 55%;
 }
-
-
-
-
 
 
 .letras-1,
@@ -78,23 +69,20 @@ svg{
     fill: #ff000d;
 }
 .botones {
-     
     display :flex;
     flex-direction: column;
-    gap: 1;
-    width: 100%;
+    gap: 1em;
+    max-width: 100%;
     align-items: end;
     padding: 1em 2em;
   
 }
-.botones>div{
-    margin: 1em;
-        border: 0.5px solid grey;
-        width: 2em;
-        height: 2em;
-background-color: #2e2e2e;
+.botones>div {
+    border: 0.5px solid grey;
+    width: 2em;
+    height: 2em;
+    background-color: #2e2e2e;
     border-radius: 50%;
-
 }
 /*
 .cls-J {
