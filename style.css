@@ -53,7 +53,7 @@ svg{
     letter-spacing: -0.09em;
 }  */
 
- .porpintar {
+.porpintar {
     fill: #59ff00;
 }
 
@@ -66,7 +66,7 @@ svg{
 }
 
 .nosepinta {
-    fill: #ff000d;
+    fill: #bbb8b8;
 }
 .botones {
     display :none;
@@ -84,58 +84,6 @@ svg{
     background-color: #2e2e2e;
     border-radius: 50%;
 }
-/*
-.cls-J {
-    fill: #c29f59;
-}
-
-.cls-I {
-    fill: #5ea668;
-}
-
-.cls-H {
-    fill: #6d9c72;
-}
-
-.cls-V {
-    fill: #c4a188;
-}
-
-.cls-G {
-    fill: #6fc254;
-}
-
-.cls-F {
-    fill: #b05172;
-}
-
-.cls-E {
-    fill: #639;
-}
-
-.cls-D {
-    fill: #618576;
-}
-
-.cls-C {
-    fill: #c72e8a;
-}
-
-.cls-Bprima {
-    fill: #a15a6c;
-}
-
-.cls-B {
-    fill: #a15a6c;
-}
-
-.cls-A {
-    fill: #a15a6c;
-}
-.cls:hover {
-fill: #990000;
-transform: scale(150%);
-/* transform: scale(); */
 
 .seve{
     display: flex;

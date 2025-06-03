@@ -1,6 +1,4 @@
-
-
-let paloStatus = [
+[
     {
         "letter": "",
         "num": 0,
@@ -662,63 +660,3 @@ let paloStatus = [
         "status": "porpintar"
     }
 ]
-
-let paloClicked = {'letter':'','num':0 , 'status':''}
-let rawPalo = {}
-
-
-function loadJSON(){
-
-}
-
-function load(){
-    const palos = document.getElementsByTagName('path')
-    if(palos){
-        Array.from(palos).forEach(paloPath=>{
-            console.log(paloPath)
-            let letter=paloPath.getAttribute("class").replace('cls-','')  
-            newPalo = {
-                letter: letter,
-                num: paloPath.getAttribute("d"),
-                status: 'porpintar'
-            }
-            if(!paloStatus.find(p=>p.num == newPalo.num)){
-                console.log('NO DEBERIA SALIR')
-                paloStatus.push(newPalo)
-            }
-        })
-    }
-    
-    console.log(JSON.stringify(paloStatus))
-}
-
-document.addEventListener('click', (event)=>{
-    rawPalo = event.target
-    if (rawPalo.tagName == "path"){
-        const botones = document.getElementById('botones')
-        if(botones){
-            // Mostrar botones
-            botones.classList.add('seve')
-            let letter=rawPalo.className.baseVal.replace('cls-','')        
-            // guardar palo pulsado
-            paloClicked = {
-                letter: letter,
-                num: rawPalo.getAttribute("d"),
-            }
-        }
-        // TODO: gestionar como ocultar botone
-    }
-})
-
-// se ejecuta cuando se pulsa un boton
-function clickStatus(element, status) {
-    paloClicked.status = status
-    ['porpintar', 'pintado', 'amedias', 'nosepinta'].forEach(status=>{
-        rawPalo.classList.remove(status)
-    })
-        rawPalo.classList.add(status)
-    const botones = document.getElementById('botones')
-    if (botones) {
-        botones.classList.remove('seve')
-    }
-}

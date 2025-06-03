@@ -11,7 +11,7 @@
     
 </head>
 
-<body>
+<body onload="load()">
     <div id="bloque1">
         <svg id="letras" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1318.47 920.54">
             <defs>
@@ -396,10 +396,10 @@
     <div id="bloque2">
         <p>hola</p>
         <div id="botones" class="botones">
-            <div>por pintar</div>
-            <div>pintado</div>
-            <div>a medias</div>
-            <div>no se pinta</div>
+            <div onclick="clickStatus(this,'porpintar')"></div>
+            <div onclick="clickStatus(this,'pintado')"></div>
+            <div onclick="clickStatus(this,'amedias')"></div>
+            <div onclick="clickStatus(this,'nosepinta')"></div>
         </div>
     </div>
 </body>
