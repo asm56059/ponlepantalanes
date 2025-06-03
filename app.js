@@ -1,5 +1,5 @@
 
-
+// TODO: este array esta relleno para las pruebas, se tiene que leer de un archivo JSON, que es el que se mantendrá actualizado
 let paloStatus = [
     {
         "letter": "",
@@ -706,13 +706,12 @@ document.addEventListener('click', (event)=>{
                 num: rawPalo.getAttribute("d"),
             }
         }
-        // TODO: gestionar como ocultar botone
     }
 })
 
 // se ejecuta cuando se pulsa un boton
 function clickStatus(element, status) {
-    paloClicked.status = status
+    paloStatus.find(p=>p.num == paloClicked.num).status = status;
     ['porpintar', 'pintado', 'amedias', 'nosepinta'].forEach(status=>{
         rawPalo.classList.remove(status)
     })
@@ -721,4 +720,10 @@ function clickStatus(element, status) {
     if (botones) {
         botones.classList.remove('seve')
     }
+    
+    //el array queda actualizado cada vez que se pulsa un palo y se pulsa un boton
+    console.table(paloStatus)
+
+    // TODO: hay que guardarlo en un json
+    
 }
