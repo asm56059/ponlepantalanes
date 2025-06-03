@@ -1,15 +1,17 @@
 body{
-    background-color: #2e2e2e;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(#2e2e2e, #9198e5);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#bloque2,#bloque1{
+    position: relative; 
+  width: 99vw;
 }
 #bloque2{
-    position: relative;
-    
-    
-    background-color: #181818;
+    /* position: absolute;  */
 }
-
-
-
 
 
 
@@ -60,22 +62,41 @@ svg{
     letter-spacing: -0.09em;
 }  */
 
-.cls-P {
-    fill: #83907c;
+ .porpintar {
+    fill: #59ff00;
 }
 
-.cls-O {
-    fill: #907988;
+.pintado {
+    fill: #ff00a6;
 }
 
-.cls-M {
-    fill: #7c9f6f;
+.amedias {
+    fill: #8670ff;
 }
 
-.cls-N {
-    fill: #ae6a6d;
+.nosepinta {
+    fill: #ff000d;
 }
+.botones {
+     
+    display :flex;
+    flex-direction: column;
+    gap: 1;
+    width: 100%;
+    align-items: end;
+    padding: 1em 2em;
+  
+}
+.botones>div{
+    margin: 1em;
+        border: 0.5px solid grey;
+        width: 2em;
+        height: 2em;
+background-color: #2e2e2e;
+    border-radius: 50%;
 
+}
+/*
 .cls-J {
     fill: #c29f59;
 }
@@ -127,4 +148,4 @@ svg{
 fill: #990000;
 transform: scale(150%);
 /* transform: scale(); */
-}
+
