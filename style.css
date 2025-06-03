@@ -55,18 +55,22 @@ svg{
 
 .porpintar {
     fill: #59ff00;
+    background-color: #59ff00;
 }
 
 .pintado {
     fill: #ff00a6;
+    background-color: #ff00a6;
 }
 
 .amedias {
     fill: #8670ff;
+    background-color: #8670ff;
 }
 
 .nosepinta {
     fill: #bbb8b8;
+    background-color: #bbb8b8;
 }
 .botones {
     display :none;
@@ -81,7 +85,6 @@ svg{
     border: 0.5px solid grey;
     width: 2em;
     height: 2em;
-    background-color: #2e2e2e;
     border-radius: 50%;
 }
 
