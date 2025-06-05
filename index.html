@@ -74,6 +74,11 @@
             background-color: #bbb8b8;
         }
 
+        .faltagorrete {
+            fill: #fff;
+            background-color: #fff;
+        }
+
         .botonesContainer {
             min-width: 5em;
             display: flex;
@@ -784,7 +789,7 @@
         let paloClicked = { 'letter': '', 'num': 0, 'status': '' }
         let rawPalo = {}
         let paloStatus = []
-
+        let paloCount = {'porpintar':0,'pintado':0,'amedias':0,'nosepinta':0,'faltagorrete':0}
         function loadJSON() {
             paloStatus = JSON.parse(localStorage.getItem('paloStatus'))
             if (!paloStatus) {
@@ -802,15 +807,17 @@
                     let letter = paloPath.getAttribute("class").replace('cls-', '')
                     let status = paloStatus?.find(p => p.num == paloPath.getAttribute("d"))?.status ?? 'porpintar'
                     paloPath.classList.add(status)
+                    paloCount[status]++
+
                     newPalo = {
                         id: Array.from(palos).indexOf(paloPath),
                         letter: letter,
                         num: paloPath.getAttribute("d"),
                         status: status
                     }
-                    // if (info && status == 'amedias') {
-                    //     createInfoElement(info, newPalo)
-                    // }
+                    
+                    updateCount(status)
+
                     if (!paloStatus.find(p => p.num == newPalo.num)) {
                         console.log('NO DEBERIA SALIR')
                         paloStatus.push(newPalo)
@@ -840,23 +847,19 @@
 
         // se ejecuta cuando se pulsa un boton
         function clickStatus(element, status) {
+            paloCount[status]++
+            updateCount(status)
             paloStatus.find(p => p.num == paloClicked.num).status = status;
-            ['porpintar', 'pintado', 'amedias', 'nosepinta'].forEach(status => {
+            ['faltagorrete','porpintar', 'pintado', 'amedias', 'nosepinta'].forEach(status => {
                 rawPalo.classList.remove(status)
             })
             rawPalo.classList.add(status)
+            
             const botones = document.getElementById('botones')
             if (botones) {
                 botones.classList.remove('seve')
             }
-            const info = document.getElementById('info')
-            if (status == 'amedias') {
-                // createInfoElement(info, newPalo)
-            } else {
-                const infoElement = document.getElementById(newPalo.id + newPalo.letter)
-                info.removeChild(infoElement)
-            }
-
+                        
             localStorage.setItem('paloStatus', JSON.stringify(paloStatus))
         }
 
@@ -867,7 +870,14 @@
             info.append(infoElement)
         }
 
-        
+        function countPalos(status){
+            return paloStatus.filter(p=>p.status == status )?.length
+        }
+
+        function updateCount(status){
+            const count = document.getElementById(status+' count')
+            count.innerHTML = paloCount[status] +' '+status
+        }
     </script>
     <title>PANTALANES</title>
 
@@ -1331,10 +1341,11 @@
         <div class="infoContainer">
 
             <div id="info">
-                <div class="porpintar">porpintar</div>
-                <div class="pintado" >pintado</div>
-                <div class="amedias">amedias</div>
-                <div class="nosepinta">nosepinta</div>
+                <div id="porpintar count" class="porpintar count">porpintar</div>
+                <div id="pintado count" class="pintado count" >pintado</div>
+                <div id="amedias count" class="amedias count">amedias</div>
+                <div id="nosepinta count" class="nosepinta count">nosepinta</div>
+                <div id="faltagorrete count" class="faltagorrete count">faltagorrete</div>
             </div>
             <div class="botonesContainer">
                 <div id="botones" class="botones">
@@ -1342,6 +1353,7 @@
                     <div class="pintado" onclick="clickStatus(this,'pintado')"></div>
                     <div class="amedias" onclick="clickStatus(this,'amedias')"></div>
                     <div class="nosepinta" onclick="clickStatus(this,'nosepinta')"></div>
+                    <div class="faltagorrete" onclick="clickStatus(this,'faltagorrete')"></div>
                 </div>
             </div>
         </div>
