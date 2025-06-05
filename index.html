@@ -74,6 +74,10 @@
             background-color: #bbb8b8;
         }
 
+        .pulsado {
+            fill: #000;
+        }
+
         .faltagorrete {
             fill: #fff;
             background-color: #fff;
@@ -836,6 +840,7 @@
                     // Mostrar botones
                     botones.classList.add('seve')
                     let letter = rawPalo.className.baseVal.replace('cls-', '')
+                    rawPalo.classList.add('pulsado')
                     // guardar palo pulsado
                     paloClicked = {
                         letter: letter,
@@ -850,7 +855,7 @@
             paloCount[status]++
             updateCount(status)
             paloStatus.find(p => p.num == paloClicked.num).status = status;
-            ['faltagorrete','porpintar', 'pintado', 'amedias', 'nosepinta'].forEach(status => {
+            ['faltagorrete','porpintar', 'pintado', 'amedias', 'nosepinta', 'pulsado'].forEach(status => {
                 rawPalo.classList.remove(status)
             })
             rawPalo.classList.add(status)
