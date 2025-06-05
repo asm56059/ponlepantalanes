@@ -94,6 +94,15 @@
         .seve {
             display: flex;
         }
+
+        #info{
+            display:flex;
+            flex-direction: column;
+            font-size: 90%;
+            font-family: monospace;
+            align-items: end;
+            gap:1em;
+        }
     </style>
     <script>
         let paloStatusDefault = [
@@ -774,16 +783,24 @@
             loadJSON()
             const palos = document.getElementsByTagName('path')
             if (palos) {
+                
                 Array.from(palos).forEach(paloPath => {
                     // console.log(paloPath)
                     let letter = paloPath.getAttribute("class").replace('cls-', '')
                     let status = paloStatus?.find(p => p.num == paloPath.getAttribute("d")).status
                     paloPath.classList.add(status)
                     newPalo = {
+                        id: Array.from(palos).indexOf(paloPath),
                         letter: letter,
                         num: paloPath.getAttribute("d"),
                         status: status
                     }
+                    
+                    
+                    if(info && status == 'amedias'){
+                        createInfoElement(info, newPalo)
+                    }
+
                     if (!paloStatus.find(p => p.num == newPalo.num)) {
                         console.log('NO DEBERIA SALIR')
                         paloStatus.push(newPalo)
@@ -822,12 +839,22 @@
             if (botones) {
                 botones.classList.remove('seve')
             }
+            const info = document.getElementById('info')
+            if(status == 'amedias'){
+                createInfoElement(info, newPalo)
+            }else{
+                const infoElement = document.getElementById(newPalo.id+newPalo.letter)
+                info.removeChild(infoElement)
+            }
 
-            //el array queda actualizado cada vez que se pulsa un palo y se pulsa un boton
-            console.table(paloStatus)
-
-            // TODO: hay que guardarlo en un json
             localStorage.setItem('paloStatus', JSON.stringify(paloStatus))
+        }
+
+        function createInfoElement(info, newPalo){
+            const infoElement = document.createElement('div')
+            infoElement.id = newPalo.id+newPalo.letter
+            infoElement.innerHTML = 'palo '+newPalo.id+newPalo.letter+' a medias'
+            info.append(infoElement)
         }
 
     </script>
@@ -1219,7 +1246,9 @@
         </svg> -->
     </div>
     <div id="bloque2">
-        <p>hola</p>
+        <div id="info" class="info">
+
+        </div>
         <div id="botones" class="botones">
             <div class="porpintar" onclick="clickStatus(this,'porpintar')"></div>
             <div class="pintado" onclick="clickStatus(this,'pintado')"></div>
