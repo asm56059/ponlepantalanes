@@ -11,6 +11,7 @@
             background: linear-gradient(#2e2e2e, #9198e5);
             background-repeat: no-repeat;
             background-size: contain;
+            margin: 0;
         }
 
         #bloque2,
@@ -32,15 +33,15 @@
 
         #pila {
             z-index: 1;
-            width: 65%;
+            width: 67%;
             margin-top: 1em;
-            margin-left: 0.5%;
+            margin-left: 3%;
         }
 
         #letras {
             z-index: 1;
-            width: 70%;
-            transform: translate(1em, -1em);
+            width: 69%;
+            transform: translate(2em, 0em);
         }
 
 
@@ -122,7 +123,7 @@
         .infoContainer {
             display: flex;
             justify-content: end;
-            max-height: 95vh;
+            height: 95vh;
             overflow-y: scroll;
         }
 
@@ -133,6 +134,7 @@
             font-family: monospace;
             align-items: end;
             gap: 0.5em;
+            padding: 2em 3em;
         }
     </style>
     <script>
@@ -846,6 +848,8 @@
             if (rawPalo.tagName == "path") {
                 const botones = document.getElementById('botones')
                 if (botones) {
+                    const textZoomLevel = (window.outerWidth / window.innerWidth) * 100;
+                    console.log(textZoomLevel)
                     // Mostrar botones
                     botones.classList.add('seve')
                     let letter = rawPalo.className.baseVal.replace('cls-', '')
