@@ -129,7 +129,7 @@
         #info {
             display: flex;
             flex-direction: column;
-            font-size: 70%;
+            /* font-size: 70%; */
             font-family: monospace;
             align-items: end;
             gap: 0.5em;
@@ -864,19 +864,28 @@
 
         // se ejecuta cuando se pulsa un boton
         function clickStatus(element, status) {
+            // se suma 1 al estado elegido
             paloCount[status]++
             updateCount(status)
-            paloStatus.find(p => p.num == paloClicked.num).status = status;
+            const palo = paloStatus.find(p => p.num == paloClicked.num)
+            const lastStatus = palo.status;
+            // se resta 1 al estado anterior
+            paloCount[lastStatus]--
+            updateCount(lastStatus)
+            palo.status = status;
             ['faltagorrete','porpintar', 'pintado', 'amedias', 'nosepinta', 'pulsado'].forEach(status => {
                 rawPalo.classList.remove(status)
             })
             rawPalo.classList.add(status)
             
+
+
             const botones = document.getElementById('botones')
             if (botones) {
                 botones.classList.remove('seve')
             }
-                        
+            
+            
             localStorage.setItem('paloStatus', JSON.stringify(paloStatus))
         }
 
@@ -893,7 +902,7 @@
 
         function updateCount(status){
             const count = document.getElementById(status+' count')
-            count.innerHTML = paloCount[status] +' '+status
+            if(count)count.innerHTML = paloCount[status] +' '+status
         }
     </script>
     <title>PANTALANES</title>
